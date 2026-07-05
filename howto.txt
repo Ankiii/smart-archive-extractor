@@ -1,0 +1,5 @@
+To run it against your specific directory, you just need to call the script and define your target directory:
+
+PowerShell
+
+.\Extract-AndArchive.ps1 -TargetDirectory "E:\WSL\data\work" -SafekeepingDirectory "E:\MyArchiveVault"
