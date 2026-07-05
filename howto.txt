@@ -3,3 +3,7 @@ To run it against your specific directory, you just need to call the script and 
 PowerShell
 
 .\Extract-AndArchive.ps1 -TargetDirectory "E:\WSL\data\work" -SafekeepingDirectory "E:\MyArchiveVault"
+
+Check for leftover compressed files using:
+
+$leftovers = @(Get-ChildItem -Path "E:\WSL\data\work" -File -Recurse | Where-Object { $_.Extension -match '^\.(zip|7z|gz|tgz|tar|rar)$' }); if ($leftovers.Count -gt 0) { Write-Host "⚠️ Found remaining archives:" -ForegroundColor Yellow; $leftovers.FullName } else { Write-Host "✅ Confirmed: Zero archives found. Your directory is fully unpacked!" -ForegroundColor Green }
